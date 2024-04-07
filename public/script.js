@@ -15,5 +15,30 @@ function handleSubmit(e) {
 		.then((image) => {
 			document.querySelector("#output").src = URL.createObjectURL(image);
 		})
+		
+	document.getElementById("errorMessage").style.display="none";
 }
+
+function clearInput() {
+    document.getElementById("ves_text").value = "";
+	document.getElementById("output").removeAttribute("src");
+	document.getElementById("errorMessage").style.display="none";
+}
+
+function downloadImage() {
+	var imgSrc = document.getElementById("output").src;
+	if (imgSrc) {
+		var link = document.createElement('a');
+		link.href = imgSrc;
+		link.download = 'image.png';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	} else {
+		document.getElementById("errorMessage").style.display="block";
+	}
+}
+
 document.querySelector("form").addEventListener("submit", handleSubmit);
+document.getElementById('clear').addEventListener('click', clearInput);
+document.getElementById('download').addEventListener('click', downloadImage);

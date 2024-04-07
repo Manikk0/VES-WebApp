@@ -6,7 +6,6 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 def serve_pil_image(img):
   img_io = BytesIO()
-  print(img)
   img.save(img_io, 'PNG', quality=70)
   img_io.seek(0)
   return send_file(img_io, mimetype='image/png')

@@ -10,13 +10,16 @@
 <body>
     <section>
         <form method="POST" action="/render">
+            <textarea id="ves_text" name="ves"></textarea>
             <button>Zobraziť</button>
-            <textarea name="ves"></textarea>
         </form>
     </section>
     <section>
         <img id="output">
     </section>
+    <button id="clear">Zmazať</button>
+    <button id="download">Stiahnuť</button>
+    <p id="errorMessage" style="color: red; display: none;">Najprv obrázok vytvor!</p>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

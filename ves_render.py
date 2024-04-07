@@ -3,7 +3,6 @@ from re import match
 
 def render_image(ves, js_width):
     file_current = ves.split("\n")
-    print(file_current)
     pattern = r"VES v\d+\.\d+ \d+ \d+"
     try:
         match_found = match(pattern, file_current[0])
