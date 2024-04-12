@@ -39,6 +39,27 @@ function downloadImage() {
 	}
 }
 
+function shareImage() {
+	var imageElement = document.getElementById('output');
+	var imageURL = imageElement.src;
+	if (imageURL) {
+		var tempInput = document.createElement('input');
+		tempInput.setAttribute('type', 'text');
+		tempInput.setAttribute('value', imageURL);
+		document.body.appendChild(tempInput);
+
+		tempInput.select();
+		tempInput.setSelectionRange(0, 99999);
+		document.execCommand('copy');
+		document.body.removeChild(tempInput);
+		
+		alert('Link bol skopírovaný');
+	} else {
+		document.getElementById("errorMessage").style.display="block";
+	}
+}
+
 document.querySelector("form").addEventListener("submit", handleSubmit);
 document.getElementById('clear').addEventListener('click', clearInput);
 document.getElementById('download').addEventListener('click', downloadImage);
+document.getElementById('share').addEventListener('click', shareImage);
