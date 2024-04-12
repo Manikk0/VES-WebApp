@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haha</title>
-    <style>
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
 </head>
 <body>
-    <section>
-        <form method="POST" action="/render">
-            <textarea id="ves_text" name="ves"></textarea>
-            <button>Zobraziť</button>
-        </form>
-    </section>
-    <section>
-        <img id="output">
-    </section>
-    <button id="clear">Zmazať</button>
-    <button id="download">Stiahnuť</button>
-    <button id="share">Zdielať</button>
-    <p id="errorMessage" style="color: red; display: none;">Najprv obrázok vytvor!</p>
+    <h1 class="text-center">Create your own image...</h1>
+    <div class="container">
+        <div class="row justify-content-evenly" style="height: 85vh;">
+            <section class="col-md-5 h-100">
+                <form method="POST" action="/render" class="h-100 d-flex flex-column justify-content-between">
+                    <textarea class="w-100" id="ves_text" name="ves" style="height: 90%; resize:none;"></textarea>
+                    <div class="row justify-content-evenly">
+                        <button class="col-md-3">Zobraziť</button>
+                    </div>
+                </form>
+            </section>
+            <section class="col-md-5 d-flex flex-column justify-content-between h-100">
+                <div class="w-100 d-flex" style="height: 90%;">
+                    <img class="w-100 h-100" id="output" style="align-self: center; object-fit: cover;" alt="">
+                </div>
+                <div class="row justify-content-evenly">
+                    <p id="errorMessage" style="color: red; display: none;">Najprv obrázok vytvor!</p>
+                    <button id="clear" class="col-md-3">Zmazať</button>
+                    <button id="share" class="col-md-3">Zdielať</button>
+                    <button id="download" class="col-md-3">Stiahnuť</button>
+                </div>
+            </section>
+        </div>
+    </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
