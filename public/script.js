@@ -1,7 +1,14 @@
 function handleSubmit(e) {
 	e.preventDefault();
 
+	var imageContainer = document.querySelector('.imagearea-1');
 	const ves = this.querySelector("textarea").value;
+
+	if (!ves) {
+		return;
+	}
+
+	imageContainer.appendChild(imageToRemove);
 	const width = document.querySelector("section:nth-child(2)").clientWidth;
 
 	const formular = new URLSearchParams();
@@ -31,6 +38,7 @@ function handleSubmit(e) {
 	span.onclick = function() { 
 		modal.style.display = "none";
 	}
+
 	document.getElementById("errorMessage").style.display="none";
 }
 
@@ -38,6 +46,10 @@ function clearInput() {
     document.getElementById("ves_text").value = "";
 	document.getElementById("output").removeAttribute("src");
 	document.getElementById("errorMessage").style.display="none";
+
+	var imageToRemove_new = document.getElementById('output');
+    var imageContainer = document.querySelector('.imagearea-1');
+	imageContainer.removeChild(imageToRemove_new);
 }
 
 function downloadImage() {
@@ -74,6 +86,7 @@ function shareImage() {
 	}
 }
 
+const imageToRemove = document.getElementById('output');
 document.querySelector("form").addEventListener("submit", handleSubmit);
 document.getElementById('clear').addEventListener('click', clearInput);
 document.getElementById('download').addEventListener('click', downloadImage);
