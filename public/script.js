@@ -1,6 +1,12 @@
 function handleSubmit(e) {
     e.preventDefault();
 
+	document.getElementById("imagearea_container").style.height = "";
+	document.getElementById("errorMessage").style.display="none";
+	if (document.getElementById("output")) {
+		document.getElementById("output").remove();
+	}
+
     var imageContainer = document.querySelector('.imagearea-1');
     const ves = this.querySelector("textarea").value;
 
